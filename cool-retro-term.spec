@@ -18,6 +18,7 @@ URL:            https://github.com/Swordfish90/cool-retro-term
 Source0:        cool-retro-term.tar.xz
 
 BuildRequires:  qt5-qtbase-devel
+BuildRequires:  qt5-qtdeclarative-devel
 
 %description
 cool-retro-term is a terminal emulator which mimics the look and feel of the
