@@ -18,7 +18,6 @@ URL:            https://github.com/Swordfish90/cool-retro-term
 Source0:        cool-retro-term.tar.xz
 
 BuildRequires:  qt5-qtbase-devel
-# Requires:       
 
 %description
 cool-retro-term is a terminal emulator which mimics the look and feel of the
@@ -47,6 +46,19 @@ rm -rf %{buildroot}
 %{_qt5_prefix}/qml/QMLTermWidget/
 %{_datadir}/applications/cool-retro-term.desktop
 %{_datadir}/icons/hicolor/*/apps/cool-retro-term.*
+
+
+%post
+touch --no-create %{_datadir}/icons/hicolor &>/dev/null || :
+
+%postun
+if [ $1 -eq 0 ] ; then
+    touch --no-create %{_datadir}/icons/hicolor &>/dev/null
+    gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
+fi
+
+%posttrans
+gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
