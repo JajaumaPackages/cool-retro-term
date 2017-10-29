@@ -1,21 +1,15 @@
-%global commit e48719f
-%global vermagic 1.0.0
-%global snapshot .git20160605.%{commit}
+%global gitdate 20171029
+%global gitversion 1.0.1
+%global gitcommit b9d0272
 
 Name:           cool-retro-term
-Version:        %{vermagic}
-Release:        1%{snapshot}%{?dist}
+Version:        %{gitversion}
+Release:        1.git%{gitdate}.%{gitcommit}%{?dist}
 Summary:        A good looking terminal emulator which mimics the old cathode display
 
 License:        GPLv3
 URL:            https://github.com/Swordfish90/cool-retro-term
-# git clone https://github.com/Swordfish90/cool-retro-term
-# cd cool-retro-term
-# git submodule init
-# git submodule update
-# cd ..
-# tar --exclude=.git* -cJ -f cool-retro-term.tar.xz cool-retro-term
-Source0:        cool-retro-term.tar.xz
+Source0:        cool-retro-term.tar.bz2
 
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  qt5-qtdeclarative-devel
@@ -63,5 +57,8 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Sun Oct 29 2017 Jajauma's Packages <jajauma@yandex.ru> - 1.0.1-1.git20171029.b9d0272
+- Update to latest git snapshot
+
 * Mon Jun 05 2017 Jajauma's Packages <jajauma@yandex.ru> - 1.0.0-1.git20160605.e48719f
 - Initial release
