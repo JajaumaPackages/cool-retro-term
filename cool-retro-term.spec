@@ -13,6 +13,7 @@ Source0:        cool-retro-term.tar.bz2
 
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  qt5-qtdeclarative-devel
+BuildRequires:  git
 
 %description
 cool-retro-term is a terminal emulator which mimics the look and feel of the
@@ -22,6 +23,7 @@ and reasonably lightweight.
 
 %prep
 %setup -q -n cool-retro-term
+git reset --hard %{gitcommit}
 
 
 %build
